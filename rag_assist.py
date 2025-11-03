@@ -4,7 +4,8 @@ from langchain_community.vectorstores import FAISS
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 from langchain_community.llms import Ollama
-from langchain.schema import Document
+from langchain_core.documents import Document
+
 from langchain.prompts import PromptTemplate
 from langchain_core.runnables import RunnableSequence
 
@@ -44,4 +45,5 @@ def ask_rag(query):
         answer = "This model cannot be run on Streamlit Cloud. Please run locally with Ollama."
     sources = [doc.metadata.get("source", "Unknown") for doc in relevant_docs]
     return answer, sources
+
 
