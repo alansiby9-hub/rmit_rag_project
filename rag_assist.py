@@ -1,7 +1,8 @@
 from langchain_community.document_loaders import TextLoader
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
 from langchain_community.llms import Ollama
 from langchain.schema import Document
 from langchain.prompts import PromptTemplate
@@ -43,3 +44,4 @@ def ask_rag(query):
         answer = "This model cannot be run on Streamlit Cloud. Please run locally with Ollama."
     sources = [doc.metadata.get("source", "Unknown") for doc in relevant_docs]
     return answer, sources
+
