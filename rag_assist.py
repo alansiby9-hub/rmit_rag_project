@@ -10,7 +10,13 @@ from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 
 # 1) Load documents
-loader = DirectoryLoader("data", glob="*.txt", loader_cls=TextLoader)
+from langchain_community.document_loaders import TextLoader
+
+files = ["enrolment.txt", "timetable.txt"]
+docs = []
+for file in files:
+    docs.extend(TextLoader(file).load())
+
 docs = loader.load()
 
 # 2) Split into chunks
