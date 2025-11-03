@@ -1,7 +1,8 @@
 from langchain_community.document_loaders import TextLoader
 from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain.chains import RetrievalQA
+from langchain.chains.retrieval_qa.base import RetrievalQA
+
 from langchain_community.llms import Ollama
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
